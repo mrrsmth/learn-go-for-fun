@@ -1,11 +1,13 @@
 package main
 
 import (
-	factorialpacked "example/learn-go/factorial"
-	"example/learn-go/recursive-functions"
-	hello "example/learn-go/service"
-	"example/learn-go/src/math"
+	// factorialpacked "example/learn-go/factorial"
+	// recursivefunctions "example/learn-go/recursive-functions"
+	// hello "example/learn-go/service"
+	// "example/learn-go/src/math"
 	"fmt"
+	"log"
+	"net/http"
 )
 
 func add(x int, y int) int {
@@ -74,7 +76,18 @@ func EvenOrOdd(number int) string {
 }
 
 func main() {
+	// Путь к статическим файлам Angular приложения
+	staticFilesDir := "D:/git/learn-go/dist"
 
+	fileServer := http.FileServer(http.Dir(staticFilesDir))
+
+	http.Handle("/", http.StripPrefix("/", fileServer))
+	http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, "This is a test endpoint")
+	})
+
+	fmt.Println("Сервер запущен и слушает порт 8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 	// action(10, 25, add)    // 35
 	// action(5, 6, multiply) // 30
 
@@ -95,14 +108,18 @@ func main() {
 	// }
 	// Litres(3)
 	// monkeyCount(10)
-	EvenOrOdd(1)
+	// EvenOrOdd(1)
 	// fmt.Println(factorial(4))
 	// fmt.Println(factorial(5))
 	// fmt.Println(factorial(4))
-	hello.Hello()
-	math.StrSlice()
-	numbers := []float64{10.0}
-	math.Average(numbers)
-	fmt.Println(factorialpacked.Factorial(4))
-	fmt.Println(recursivefunctions.Factorial(4))
+	// hello.Hello()
+	// math.StrSlice()
+	// numbers := []float64{10.0}
+	// math.Average(numbers)
+	// fmt.Println(factorialpacked.Factorial(4))
+	// fmt.Println(recursivefunctions.Factorial(4))
+	// fmt.Println("Server is listening...")
+	// server.Server()
+	// http.ListenAndServe("localhost:8181", server.Msg("Hello from Web Server in Go"))
+
 }
