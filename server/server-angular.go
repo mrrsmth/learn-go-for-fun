@@ -7,7 +7,7 @@ import (
 )
 
 func Info() {
-	staticFilesDir := "D:/git/learn-go/dist"
+	staticFilesDir := "D:/git/learn-go/server/dist"
 
 	fileServer := http.FileServer(http.Dir(staticFilesDir))
 
