@@ -1,5 +1,7 @@
 package main
 
+import "path/learn-go/lessons/goroutines"
+
 // "fmt"
 // "log"
 // "net/http"
@@ -13,9 +15,8 @@ package main
 // pointers "path/learn-go/lessons/pointers"
 // "path/learn-go/base-func/transformation"
 // math "path/learn-go/lessons/any-package/math"
-import (
-	interfaceLesson "path/learn-go/lessons/interface"
-)
+
+// stream "path/learn-go/lessons/stream"
 
 func main() {
 	// var n int = 32312
@@ -29,7 +30,10 @@ func main() {
 
 	// math.MathMain(float64(n))
 	// transformation.TransformationMain()
-	interfaceLesson.InterfaceLesson()
+	// interfaceLesson.InterfaceLesson()
+	// stream.StreamMain()
+	// polimorf.MainPolimorf()
+	goroutines.MainGoroutines()
 	// message := quote.Glass()
 	// fmt.Printf(message)
 

@@ -3,7 +3,7 @@ package interfaceLesson
 import "fmt"
 
 type Vehicle interface {
-	move()
+	Move()
 }
 
 // структура "Автомобиль"
@@ -25,16 +25,17 @@ type Stream interface {
 type Aircraft struct {
 }
 
-func (c Car) move() {
+func (c Car) Move() {
 	fmt.Println(c.brand)
 	fmt.Println("Автомобиль едет")
 }
-func (a Aircraft) move() {
+func (a Aircraft) Move() {
 	fmt.Println("Самолет летит")
 }
 
 func printCars(cars []Car) {
 	for _, c := range cars {
+		c.Move()
 		fmt.Println("Марка:", c.brand)
 		fmt.Println("Модель:", c.model)
 		fmt.Println("Цвет:", c.color)
@@ -46,22 +47,22 @@ func printCars(cars []Car) {
 }
 
 func InterfaceLesson() {
-	// var car Vehicle = Car{
-	// 	brand:   "Toyota",
-	// 	model:   "Camry",
-	// 	color:   "Blue",
-	// 	mileage: 10000,
-	// 	year:    2020,
-	// }
-	// var boing Vehicle = Aircraft{}
-	// car.move()
-	// boing.move()
+	var car Vehicle = Car{
+		brand:   "Toyota",
+		model:   "Camry",
+		color:   "Blue",
+		mileage: 10000,
+		year:    2020,
+	}
+	var boing Vehicle = Aircraft{}
+	car.Move()
+	boing.Move()
 
-	// cars := []Car{
-	// 	{brand: "Toyota", model: "Camry", color: "Blue", mileage: 10000, year: 2020},
-	// 	{brand: "Honda", model: "Accord", color: "Red", mileage: 15000, year: 2019},
-	// 	{brand: "Ford", model: "Mustang", color: "Yellow", mileage: 5000, year: 2021},
-	// }
+	cars := []Car{
+		{brand: "Toyota", model: "Camry", color: "Blue", mileage: 10000, year: 2020},
+		{brand: "Honda", model: "Accord", color: "Red", mileage: 15000, year: 2019},
+		{brand: "Ford", model: "Mustang", color: "Yellow", mileage: 5000, year: 2021},
+	}
 
-	// printCars(cars)
+	printCars(cars)
 }
