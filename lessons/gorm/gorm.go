@@ -82,6 +82,17 @@ func Gorm() {
 
 	// Вызываем функцию Up для обновления продукта по ID
 	Up(*db)
+
+	// Выводим финальный результат в консоль
+	var products []Product
+	err = db.Find(&products).Error
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Итоговая база данных:")
+	for _, p := range products {
+		fmt.Printf("%+v\n", p)
+	}
 }
 
 func DeleteProduct(db *gorm.DB, id int) error {
