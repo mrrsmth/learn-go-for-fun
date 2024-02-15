@@ -17,7 +17,8 @@ package main
 import (
 	// netLesson "path/learn-go/lessons/net"
 	// db "path/learn-go/lessons/db"
-	mysqldb "path/learn-go/lessons/mysqldb"
+	gormstart "path/learn-go/lessons/gorm"
+	// mysqldb "path/learn-go/lessons/mysqldb"
 )
 
 func main() {
@@ -47,6 +48,8 @@ func main() {
 	// db.Scan()
 	// db.DeleteProduct(1)
 	// db.InfoMain()
-	mysqldb.Del()
-	mysqldb.GetItems()
+	// mysqldb.Del()
+	// mysqldb.AddItem()
+	// mysqldb.GetItems()
+	gormstart.GormStart()
 }

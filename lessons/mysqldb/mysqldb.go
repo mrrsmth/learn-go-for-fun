@@ -25,6 +25,13 @@ func AddItem() {
 
 	result, err := db.Exec("insert into productdb.Products (model, company, price) values (?, ?, ?)",
 		"iPhone X", "Apple", 72000)
+
+	// result, err := db.Exec("INSERT INTO productdb.products (model, company, price) VALUES (:model, :company, :price)",
+	// 	sql.Named("model", "iPhone X"), sql.Named("company", "Apple"), sql.Named("price", 72000))
+
+	if err != nil {
+		panic(err)
+	}
 	if err != nil {
 		panic(err)
 	}
