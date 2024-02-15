@@ -16,7 +16,8 @@ package main
 // stream "path/learn-go/lessons/stream"
 import (
 	// netLesson "path/learn-go/lessons/net"
-	db "path/learn-go/lessons/db"
+	// db "path/learn-go/lessons/db"
+	mysqldb "path/learn-go/lessons/mysqldb"
 )
 
 func main() {
@@ -42,5 +43,10 @@ func main() {
 	// netLesson.MainListener()
 	// netLesson.Client()
 	// filereader.Filereader()
-	db.Add()
+	// db.Add()
+	// db.Scan()
+	// db.DeleteProduct(1)
+	// db.InfoMain()
+	mysqldb.Del()
+	mysqldb.GetItems()
 }
