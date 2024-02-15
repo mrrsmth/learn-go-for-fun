@@ -1,6 +1,7 @@
 package gorm
 
 import (
+	"fmt"
 	"log"
 
 	"gorm.io/driver/mysql"
@@ -15,7 +16,7 @@ type Product struct {
 	Price   int
 }
 
-func Up(db *gorm.DB) {
+func Up(db gorm.DB) {
 	updatedProduct := Product{
 		Model:   "Ноутбук Pro",
 		Company: "ASUS",
@@ -38,7 +39,7 @@ func Gorm() {
 		log.Fatal(err)
 	}
 
-	// Получаем объект *sql.DB
+	// Получаем объект sql.DB
 	sqlDB, err := db.DB()
 	if err != nil {
 		log.Fatal(err)
@@ -46,45 +47,41 @@ func Gorm() {
 	defer sqlDB.Close()
 
 	// Создаем таблицу "products", если она еще не существует
-	err = db.AutoMigrate(&Product{})
+	// err = db.AutoMigrate(&Product{})
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// Создаем продукт по ID
+	createdProduct := Product{ID: 1, Model: "Ноутбук", Company: "ASUS", Price: 1999}
+	err = db.Create(&createdProduct).Error
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Создаем продукт
-	product := Product{Model: "Ноутбук", Company: "ASUS", Price: 1999}
-	err = db.Create(&product).Error
+	// Получаем продукт по ID
+	var fetchedProduct Product
+	err = db.First(&fetchedProduct, 1).Error
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Полученный продукт: %+v\n", fetchedProduct)
+
+	// Обновляем продукт по ID
+	updatedProduct := Product{ID: 1, Model: "Обновленный ноутбук", Company: "ASUS", Price: 2499}
+	err = db.Save(&updatedProduct).Error
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Получаем продукты
-	var products []Product
-	err = db.Find(&products).Error
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Выводим продукты в консоль
-	for _, p := range products {
-		println(p.ID, p.Model, p.Company, p.Price)
-	}
-
-	// Обновляем продукт
-	product.Price = 2499
-	err = db.Save(&product).Error
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Удаляем продукт
-	err = db.Delete(&product).Error
+	// Удаляем продукт по ID
+	err = DeleteProduct(db, 1)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// Вызываем функцию Up для обновления продукта по ID
-	Up(db)
+	Up(*db)
 }
 
 func DeleteProduct(db *gorm.DB, id int) error {
@@ -96,7 +93,7 @@ func DeleteProduct(db *gorm.DB, id int) error {
 	return nil
 }
 
-func UpdateProduct(db *gorm.DB, id int, updatedProduct Product) error {
+func UpdateProduct(db gorm.DB, id int, updatedProduct Product) error {
 	product := Product{}
 	result := db.Where("id = ?", id).First(&product)
 	if result.Error != nil {
