@@ -20,6 +20,8 @@ import (
 	// gormstart "path/learn-go/lessons/gorm"
 	// mysqldb "path/learn-go/lessons/mysqldb"
 	codewars "path/learn-go/codewars"
+	jwt "path/learn-go/fun/jwt"
+	// fun "path/learn-go/fun/nethello"
 )
 
 func main() {
@@ -54,4 +56,6 @@ func main() {
 	// mysqldb.GetItems()
 	// gormstart.GormStart()
 	codewars.Hello()
+	// fun.Main()
+	jwt.JwtMain()
 }
