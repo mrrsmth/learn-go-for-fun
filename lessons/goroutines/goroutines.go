@@ -1,37 +1,17 @@
 package goroutines
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func MainGoroutines() {
-	// 	var wg sync.WaitGroup // Создаем переменную WaitGroup
-
-	// 	for i := 1; i < 7; i++ {
-	// 		wg.Add(1) // Увеличиваем счетчик WaitGroup на 1
-	// 		go Factorial(i, &wg)
-	// 	}
-
-	// 	wg.Wait() // Ждем завершения всех горутин
-	// 	fmt.Println("The End")
-	// }
-
-	// func Factorial(n int, wg *sync.WaitGroup) {
-	// 	defer wg.Done() // Уменьшаем счетчик WaitGroup на 1 при завершении горутины
-
-	// 	if n < 1 {
-	// 		fmt.Println("Invalid input number")
-	// 		return
-	// 	}
-
-	// 	result := 1
-	// 	for i := 1; i <= n; i++ {
-	// 		result *= i
-	// 	}
-
-	// 	fmt.Println(n, "-", result)
+	fmt.Println("init")
 	for i := 1; i < 7; i++ {
-		go Factorial(i)
+		go factorial(i)
 	}
-	// fmt.Scanln() // ждем ввода пользователя
+	time.Sleep(1 * time.Second)
+	// fmt.Scanln()
 	fmt.Println("The End")
 
 	for i := 1; i < 7; i++ {
@@ -44,14 +24,23 @@ func MainGoroutines() {
 			fmt.Println(n, "-", result)
 		}(i)
 	}
+
 	fmt.Scanln()
 	fmt.Println("The End")
 
+	for i := 1; i < 7; i++ {
+		num := i
+		go func() {
+			fmt.Println(num)
+		}()
+	}
+	time.Sleep(1 * time.Second)
+
 }
 
-func Factorial(n int) {
+func factorial(n int) {
 	if n < 1 {
-		fmt.Println("Unvalid input number")
+		fmt.Println("Invalid input number")
 		return
 	}
 	result := 1

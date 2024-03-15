@@ -14,19 +14,22 @@ package main
 // "path/learn-go/base-func/transformation"
 // math "path/learn-go/lessons/any-package/math"
 // stream "path/learn-go/lessons/stream"
+// netLesson "path/learn-go/lessons/net"
+// db "path/learn-go/lessons/db"
+// gormstart "path/learn-go/lessons/gorm"
+// mysqldb "path/learn-go/lessons/mysqldb"
+// codewars "path/learn-go/codewars"
+// jwt "path/learn-go/fun/jwt"
+// fun "path/learn-go/fun/nethello"
 import (
-	// netLesson "path/learn-go/lessons/net"
-	// db "path/learn-go/lessons/db"
-	// gormstart "path/learn-go/lessons/gorm"
-	// mysqldb "path/learn-go/lessons/mysqldb"
-	codewars "path/learn-go/codewars"
-	jwt "path/learn-go/fun/jwt"
-	// fun "path/learn-go/fun/nethello"
+	// gorutines "path/learn-go/lessons/gorutinesnew"
+	chanmetanit "path/learn-go/lessons/chanmetanit"
+	// goroutines "path/learn-go/lessons/goroutines"
 )
 
 func main() {
 	// var n int = 32312
-	// angular.Info()
+	// angular.Info()chanmetanit
 	// deferl.Main()
 	// slice.MainSlice()
 	// slice.UserDel()
@@ -55,7 +58,11 @@ func main() {
 	// mysqldb.AddItem()
 	// mysqldb.GetItems()
 	// gormstart.GormStart()
-	codewars.Hello()
+	// codewars.Hello()
 	// fun.Main()
-	jwt.JwtMain()
+	// jwt.JwtMain()
+	// gorutines.Main()
+	// gt.Main()
+	// goroutines.MainGoroutines()
+	chanmetanit.Chan()
 }
