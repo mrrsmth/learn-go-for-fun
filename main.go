@@ -23,8 +23,9 @@ package main
 // fun "path/learn-go/fun/nethello"
 import (
 	// gorutines "path/learn-go/lessons/gorutinesnew"
-	chanmetanit "path/learn-go/lessons/chanmetanit"
+	// chanmetanit "path/learn-go/lessons/chanmetanit"
 	// goroutines "path/learn-go/lessons/goroutines"
+	txtread "path/learn-go/fun/txtread"
 )
 
 func main() {
@@ -64,5 +65,6 @@ func main() {
 	// gorutines.Main()
 	// gt.Main()
 	// goroutines.MainGoroutines()
-	chanmetanit.Chan()
+	// chanmetanit.Chan()
+	txtread.Cr()
 }
