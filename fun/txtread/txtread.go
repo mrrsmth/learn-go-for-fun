@@ -46,4 +46,31 @@ func Cr() {
 	lines := strings.Split(string(content), "\n")
 	fmt.Println("done")
 	fmt.Println(lines)
+
+	// str
+	strOne := "one"
+	strTwo := "one"
+	// output := strings.Compare(strOne, strTwo)
+	// if output == -1 {
+	// 	fmt.Println("not found")
+	// } else {
+	// 	fmt.Println("found")
+	// }
+	fmt.Println(foundString(strOne, strTwo))
+	check := foundString(strOne, strTwo)
+	if check {
+		fmt.Println("found again")
+	} else {
+		fmt.Println("not found again")
+	}
+
+}
+
+func foundString(strOne, strTwo string) bool {
+	output := strings.Compare(strOne, strTwo)
+	if output == -1 {
+		return false
+	} else {
+		return true
+	}
 }
