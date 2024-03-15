@@ -9,6 +9,9 @@ import (
 )
 
 func Cr() {
+	strOne := "one"
+	strTwo := "two"
+
 	f, err := os.Create("fun/data.txt")
 
 	if err != nil {
@@ -48,25 +51,18 @@ func Cr() {
 	fmt.Println(lines)
 
 	// str
-	strOne := "one"
-	strTwo := "one"
-	// output := strings.Compare(strOne, strTwo)
-	// if output == -1 {
-	// 	fmt.Println("not found")
-	// } else {
-	// 	fmt.Println("found")
-	// }
-	fmt.Println(foundString(strOne, strTwo))
-	check := foundString(strOne, strTwo)
+
+	fmt.Println(compareString(strOne, strTwo))
+	check := compareString(strOne, strTwo)
 	if check {
-		fmt.Println("found again")
+		fmt.Println("compare again")
 	} else {
-		fmt.Println("not found again")
+		fmt.Println("not compare again")
 	}
 
 }
 
-func foundString(strOne, strTwo string) bool {
+func compareString(strOne, strTwo string) bool {
 	output := strings.Compare(strOne, strTwo)
 	if output == -1 {
 		return false
