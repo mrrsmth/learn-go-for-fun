@@ -23,13 +23,13 @@ func Cr() {
 		log.Fatal(err2)
 	}
 
-	fr, err := os.Open("fun/data.txt")
+	fr, err3 := os.Open("fun/data.txt")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err3)
 	}
 	defer func() {
 		if err = fr.Close(); err != nil {
-			log.Fatal(err)
+			log.Fatal(err3)
 		}
 	}()
 	scanner := bufio.NewScanner(fr)
