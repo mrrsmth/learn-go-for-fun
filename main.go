@@ -26,7 +26,8 @@ import (
 	// chanmetanit "path/learn-go/lessons/chanmetanit"
 	// goroutines "path/learn-go/lessons/goroutines"
 	// txtread "path/learn-go/fun/txtread"
-	inter "path/learn-go/fun/inter"
+	// inter "path/learn-go/fun/inter"
+	strInter "path/learn-go/fun/strInter"
 )
 
 func main() {
@@ -68,5 +69,7 @@ func main() {
 	// goroutines.MainGoroutines()
 	// chanmetanit.Chan()
 	// txtread.Cr()
-	inter.Inter()
+	// inter.Inter()
+	strInter.Init()
+
 }
