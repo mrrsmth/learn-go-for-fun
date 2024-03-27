@@ -27,7 +27,10 @@ import (
 	// goroutines "path/learn-go/lessons/goroutines"
 	// txtread "path/learn-go/fun/txtread"
 	// inter "path/learn-go/fun/inter"
+	"fmt"
 	strInter "path/learn-go/fun/strInter"
+
+	"github.com/golang-module/carbon/v2"
 )
 
 func main() {
@@ -71,5 +74,6 @@ func main() {
 	// txtread.Cr()
 	// inter.Inter()
 	strInter.Init()
-
+	// Convert standard Time.time to Carbon
+	fmt.Printf("%s", carbon.Now()) // 2020-08-05 13:14:15
 }
